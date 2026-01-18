@@ -2299,7 +2299,7 @@ computes critiques based on the results, and applies edits to generate improved 
 
 
 <h5 id="agentlightning.algorithm.apo.APO.__init__" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">async_openai_client</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">gradient_model</span><span class="o">=</span><span class="s1">&#39;gpt-5-mini&#39;</span><span class="p">,</span> <span class="n">apply_edit_model</span><span class="o">=</span><span class="s1">&#39;gpt-4.1-mini&#39;</span><span class="p">,</span> <span class="n">diversity_temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">gradient_batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">val_batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">beam_width</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">branch_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">beam_rounds</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rollout_batch_timeout</span><span class="o">=</span><span class="mf">3600.0</span><span class="p">,</span> <span class="n">run_initial_validation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_poml_trace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">async_openai_client</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">gradient_model</span><span class="o">=</span><span class="s1">&#39;gpt-5-mini&#39;</span><span class="p">,</span> <span class="n">apply_edit_model</span><span class="o">=</span><span class="s1">&#39;gpt-4.1-mini&#39;</span><span class="p">,</span> <span class="n">diversity_temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">gradient_batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">val_batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">beam_width</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">branch_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">beam_rounds</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rollout_batch_timeout</span><span class="o">=</span><span class="mf">3600.0</span><span class="p">,</span> <span class="n">run_initial_validation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gradient_prompt_files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apply_edit_prompt_files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_poml_trace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 <a href="#agentlightning.algorithm.apo.APO.__init__" class="headerlink" title="Permanent link">&para;</a></h5>
 
@@ -2419,6 +2419,26 @@ by applying textual gradient edits. This controls the expansion of the search tr
           <div class="doc-md-description">
             <p>If True, runs validation on the seed prompt before starting
 optimization to establish a baseline score. Defaults to True.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>gradient_prompt_files</code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>]]</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Prompt templates used to compute textual gradients (critiques).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>apply_edit_prompt_files</code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>]]</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Prompt templates used to apply edits based on critiques.</p>
           </div>
         </li>
     </ul>
